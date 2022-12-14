@@ -88,7 +88,7 @@ class Client
     {
         $message = hash("sha256", hash("sha256", "$message|$timestamp", True), True);
         $ec = new EC('secp256k1');
-        $key = $ec->keyFromPublic($this->coboPub, "hex");
+        $key = $ec->keyFromPublic($this->defipayPublicKey, "hex");
         return $key->verify(bin2hex($message), $signature);
     }
 
